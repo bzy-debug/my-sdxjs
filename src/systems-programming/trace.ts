@@ -17,3 +17,5 @@ blue(green, red)
 // BLUE
 // GREEN
 // RED
+
+export { }

@@ -10,3 +10,5 @@ const people = [
 const result = people.filter((person) => person.personal >= person.family)
 
 console.log(result)
+
+export { }
