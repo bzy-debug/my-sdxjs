@@ -18,6 +18,20 @@ class Pledge {
     }
   }
 
+  static any (pledges: Pledge[]): Pledge {
+    return new Pledge((resolve, reject) => {
+      pledges.forEach(p => { p.then(v => resolve(v)).catch(err => reject(err)) })
+    })
+  }
+
+  static all (pledges: Pledge[]): Pledge {
+    const values: any[] = []
+    return new Pledge((resolve, reject) => {
+      pledges.forEach(p => { p.then(v => values.push(v)).catch(err => reject(err)) })
+      resolve(values)
+    })
+  }
+
   private onReject (this: Pledge, value: any): any {
     this.errorCallback(value)
   }
