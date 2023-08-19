@@ -5,17 +5,35 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  caller:
+    specifier: ^1.1.0
+    version: 1.1.0
   fs-extra:
     specifier: ^11.1.1
     version: 11.1.1
   glob:
     specifier: ^10.3.3
     version: 10.3.3
+  microtime:
+    specifier: ^3.1.1
+    version: 3.1.1
+  minimist:
+    specifier: ^1.2.8
+    version: 1.2.8
 
 devDependencies:
+  '@types/caller':
+    specifier: ^1.0.0
+    version: 1.0.0
   '@types/fs-extra':
     specifier: ^11.0.1
     version: 11.0.1
+  '@types/microtime':
+    specifier: ^2.1.0
+    version: 2.1.0
+  '@types/minimist':
+    specifier: ^1.2.2
+    version: 1.2.2
   '@types/node':
     specifier: ^20.5.0
     version: 20.5.0
@@ -130,6 +148,10 @@ packages:
     dev: false
     optional: true
 
+  /@types/caller@1.0.0:
+    resolution: {integrity: sha512-zbyHsdYFn5gCQFn+fF7Ad9En1fJdj3o0YP7DPTD9J3at4M9auNfoLrVYH4hFdLfFDhnB0kTZw3RAKp4iD516uw==}
+    dev: true
+
   /@types/fs-extra@11.0.1:
     resolution: {integrity: sha512-MxObHvNl4A69ofaTRU8DFqvgzzv8s9yRtaPPm5gud9HDNvpB3GPQFvNuTWAI59B9huVGV5jXYJwbCsmBsOGYWA==}
     dependencies:
@@ -149,6 +171,14 @@ packages:
     resolution: {integrity: sha512-GSgiRCVeapDN+3pqA35IkQwasaCh/0YFH5dEF6S88iDvEn901DjOeH3/QPY+XYP1DFzDZPvIvfeEgk+7br5png==}
     dependencies:
       '@types/node': 20.5.0
+    dev: true
+
+  /@types/microtime@2.1.0:
+    resolution: {integrity: sha512-4mUXDZ9ISb7vpu7Q5cR9Itl2ncbYzn7nVgplTLBHoM4M3Mt85dK12CXIMGn+F8ZD0CMiWhjBajJyDY5yxijC0Q==}
+    dev: true
+
+  /@types/minimist@1.2.2:
+    resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
   /@types/node@20.5.0:
@@ -458,6 +488,10 @@ packages:
       function-bind: 1.1.1
       get-intrinsic: 1.2.1
     dev: true
+
+  /caller@1.1.0:
+    resolution: {integrity: sha512-n+21IZC3j06YpCWaxmUy5AnVqhmCIM2bQtqQyy00HJlmStRt6kwDX5F9Z97pqwAB+G/tgSz6q/kUBbNyQzIubw==}
+    dev: false
 
   /callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
@@ -1588,6 +1622,15 @@ packages:
       picomatch: 2.3.1
     dev: true
 
+  /microtime@3.1.1:
+    resolution: {integrity: sha512-to1r7o24cDsud9IhN6/8wGmMx5R2kT0w2Xwm5okbYI3d1dk6Xv0m+Z+jg2vS9pt+ocgQHTCtgs/YuyJhySzxNg==}
+    engines: {node: '>= 14.13.0'}
+    requiresBuild: true
+    dependencies:
+      node-addon-api: 5.1.0
+      node-gyp-build: 4.6.0
+    dev: false
+
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
@@ -1603,7 +1646,6 @@ packages:
 
   /minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
-    dev: true
 
   /minipass@7.0.3:
     resolution: {integrity: sha512-LhbbwCfz3vsb12j/WkWQPZfKTsgqIe1Nf/ti1pKjYESGLHIVjWU96G9/ljLH4F9mWNVhlQOm0VySdAWzf05dpg==}
@@ -1625,6 +1667,15 @@ packages:
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
+
+  /node-addon-api@5.1.0:
+    resolution: {integrity: sha512-eh0GgfEkpnoWDq+VY8OyvYhFEzBk6jIYbRKdIlyTiAXIVJ8PyBaKb0rp7oDtoddbdoHWhq8wwr+XZ81F1rpNdA==}
+    dev: false
+
+  /node-gyp-build@4.6.0:
+    resolution: {integrity: sha512-NTZVKn9IylLwUzaKjkas1e4u2DLNcV4rdYagA4PWdPwW87Bi7z+BznyKSRwS/761tV/lzCGXplWsiaMjLqP2zQ==}
+    hasBin: true
+    dev: false
 
   /object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
