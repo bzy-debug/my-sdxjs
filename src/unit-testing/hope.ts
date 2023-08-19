@@ -1,7 +1,7 @@
 import { AssertionError } from 'assert'
 import caller from 'caller'
 
-type Todo = [string, () => void]
+type Todo = [string, () => void | Promise<void>]
 
 class Hope {
   private readonly _todos: Todo[] = []
@@ -41,7 +41,7 @@ class Hope {
     return report
   }
 
-  test (comment: string, callback: () => void, tags: string[]): void {
+  test (comment: string, callback: () => void | Promise<void>, tags: string[]): void {
     const todo: Todo = [`${caller()}::${comment}`, callback]
     this._todos.push(todo)
     tags.forEach(tag => {
@@ -53,12 +53,15 @@ class Hope {
     })
   }
 
-  run (tag?: string): void {
+  async run (tag?: string): Promise<void> {
     const todos = tag !== undefined ? this._tagMap.get(tag) : this._todos
     if (todos === undefined) return
     for (const [comment, test] of todos) {
       try {
-        test()
+        const res = test()
+        if (typeof res === 'object') {
+          await res
+        }
         this._passes.push(comment)
       } catch (err) {
         if (err instanceof AssertionError) {

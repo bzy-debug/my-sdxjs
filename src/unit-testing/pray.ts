@@ -26,7 +26,7 @@ async function main (args: string[]): Promise<void> {
     await import(`${path.resolve(file)}`)
   }
 
-  Hope.run(tag)
+  await Hope.run(tag)
   const report = options.v ? Hope.verbose() : Hope.terse()
   console.log(report)
 }
