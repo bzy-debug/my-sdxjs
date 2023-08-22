@@ -20,6 +20,9 @@ dependencies:
   minimist:
     specifier: ^1.2.8
     version: 1.2.8
+  mock-fs:
+    specifier: ^5.2.0
+    version: 5.2.0
 
 devDependencies:
   '@types/caller':
@@ -34,6 +37,9 @@ devDependencies:
   '@types/minimist':
     specifier: ^1.2.2
     version: 1.2.2
+  '@types/mocha':
+    specifier: ^10.0.1
+    version: 10.0.1
   '@types/node':
     specifier: ^20.5.0
     version: 20.5.0
@@ -182,6 +188,10 @@ packages:
 
   /@types/minimist@1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
+    dev: true
+
+  /@types/mocha@10.0.1:
+    resolution: {integrity: sha512-/fvYntiO1GeICvqbQ3doGDIP97vWmvFt83GKguJ6prmQM2iXZfFcq6YE8KteFyRtX2/h5Hf91BYvPodJKFYv5Q==}
     dev: true
 
   /@types/node@20.5.0:
@@ -1811,6 +1821,11 @@ packages:
       yargs-parser: 20.2.4
       yargs-unparser: 2.0.0
     dev: true
+
+  /mock-fs@5.2.0:
+    resolution: {integrity: sha512-2dF2R6YMSZbpip1V1WHKGLNjr/k48uQClqMVb5H3MOvwc9qhYis3/IWbj02qIg/Y8MDXKFF4c5v0rxx2o6xTZw==}
+    engines: {node: '>=12.0.0'}
+    dev: false
 
   /ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
