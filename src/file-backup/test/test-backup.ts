@@ -1,26 +1,30 @@
 import assert from 'assert'
-import fs from 'fs-extra-promise'
-import glob from 'glob-promise'
+import fs from 'node:fs/promises'
+import { glob } from 'glob'
 import mock from 'mock-fs'
 import crypto from 'crypto'
 
 // [fixtures]
 import backup from '../backup.js'
 
-const hashString = (data) => {
+function hashString (data: string): string {
   const hasher = crypto.createHash('sha1').setEncoding('hex')
   hasher.write(data)
   hasher.end()
   return hasher.read()
 }
 
-const Contents = {
+interface FS {
+  [index: string]: string
+}
+
+const Contents: FS = {
   aaa: 'AAA',
   bbb: 'BBB',
   ccc: 'CCC'
 }
 
-const Hashes = Object.keys(Contents).reduce((obj, key) => {
+const Hashes = Object.keys(Contents).reduce<FS>((obj, key) => {
   obj[key] = hashString(Contents[key])
   return obj
 }, {})
@@ -90,7 +94,7 @@ describe('check entire backup process', () => {
     assert.strictEqual((await glob('backup/*')).length, 4,
       'Expected 4 files after first backup')
 
-    await fs.writeFileAsync('source/newfile.txt', 'NNN')
+    await fs.writeFile('source/newfile.txt', 'NNN')
     const hashOfNewFile = hashString('NNN')
 
     await backup('source', 'backup', 1)
