@@ -14,18 +14,16 @@ function hashString (data: string): string {
   return hasher.read()
 }
 
-interface FS {
-  [index: string]: string
-}
+type FileSystem = NonNullable<Parameters<typeof mock>[0]>
 
-const Contents: FS = {
+const Contents: FileSystem = {
   aaa: 'AAA',
   bbb: 'BBB',
   ccc: 'CCC'
 }
 
-const Hashes = Object.keys(Contents).reduce<FS>((obj, key) => {
-  obj[key] = hashString(Contents[key])
+const Hashes = Object.keys(Contents).reduce<FileSystem>((obj, key) => {
+  obj[key] = hashString(Contents[key] as string)
   return obj
 }, {})
 
@@ -41,7 +39,7 @@ const Fixture = {
 }
 
 const InitialBackups = Object.keys(Hashes).reduce((set, filename) => {
-  set.add(`backup/${Hashes[filename]}.bck`)
+  set.add(`backup/${Hashes[filename] as string}.bck`)
   return set
 }, new Set())
 // [/fixtures]
