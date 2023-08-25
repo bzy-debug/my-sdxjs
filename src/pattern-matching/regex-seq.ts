@@ -8,7 +8,12 @@ class RegexSeq extends RegexBase {
   }
 
   _match (text: string, start: number): number | null {
-    return null
+    let next: number | null = start
+    for (const regex of this.regexs) {
+      if (next == null) return null
+      next = regex._match(text, next)
+    }
+    return next
   }
 }
 

@@ -8,7 +8,10 @@ class RegexLit extends RegexBase {
   }
 
   _match (text: string, start: number): number | null {
-    return null // FIXME
+    const nextIndex = start + this.chars.length
+    const actual = text.slice(start, nextIndex)
+    if (this.chars === actual) return nextIndex
+    return null
   }
 }
 

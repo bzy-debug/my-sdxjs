@@ -8,6 +8,12 @@ class RegexAlt extends RegexBase {
   }
 
   _match (text: string, start: number): number | null {
+    for (const regex of this.regexs) {
+      const next = regex._match(text, start)
+      if (next != null) {
+        return next
+      }
+    }
     return null
   }
 }

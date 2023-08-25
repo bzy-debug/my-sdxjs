@@ -8,7 +8,10 @@ class RegexAny extends RegexBase {
   }
 
   _match (text: string, start: number): number | null {
-    return null // FIXME
+    while (start < text.length && text[start] === this.chars) {
+      start++
+    }
+    return start
   }
 }
 
