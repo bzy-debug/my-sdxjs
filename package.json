@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "rm -rf out && tsc -w -p .",
-    "test": "mocha out/*/test/test-*.js"
+    "test": "mocha out/**/test/test-*.js"
   },
   "keywords": [],
   "author": "",
